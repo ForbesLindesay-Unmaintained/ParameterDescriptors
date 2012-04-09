@@ -1,0 +1,64 @@
+.param-list {
+    margin: 8px 0;
+}
+.param-name {
+    color: #666;
+    float: left;
+    margin-right: 16px;
+    min-width: 160px;
+}
+.param-type {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #CCC;
+    float: left;
+    font-size: .75em;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0 8px 0 0;
+    min-width: 80px;
+    padding: 2px 5px;
+    text-align: center;
+}
+.param-type-object {
+    background: #EDB1B1;
+    color: #4C0000;
+}
+.param-type-array {
+    background: #EDD5B1;
+    color: #4C2D00;
+}
+.param-type-number,.param-type-int, .param-type-integer {
+    background: #B1C9ED;
+    color: #001E4C;
+}
+.param-type-string {
+    background: #E1EDB1;
+    color: #3D4C00;
+}
+.param-type-function {
+    background: #CFB1ED;
+    color: #26004C;
+}
+.param-type-boolean {
+    background: #B1EDC9;
+    color: #004C1E;
+}
+.param-type-regexp {
+    background:#CC00FF;
+    color:#660066;
+}
+.param-desc
+{
+    float:left;
+    margin-right: 8px;
+    margin-left: 0;
+}
+.param-default-value {
+    display: table;
+    min-height: 26px;
+    border: solid 1px #FFFFFF;
+    font-style:italic;
+    color: #666;
+}
