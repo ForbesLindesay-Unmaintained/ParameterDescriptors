@@ -1,5 +1,3 @@
-# Syntax Basics
-
 This module produces an html definition list for parameters from a json array.
 
 The JSON array should be of the following form:
@@ -20,17 +18,6 @@ e.g.
 [["Arg0", "", "We don't know what type this is"],
  ["Arg2", "descriptionless", "", "0"]];
 ```
-
-# Installation
-
-Install using npm:
-
-    npm install parameter-descriptors
-
-Require in:
-
-    require("parameter-descriptors").jsonParseAndRender
-
 
 # Public Methods
 
