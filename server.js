@@ -1,5 +1,5 @@
 var server = require("express").createServer(),
-    parser = require("parameter-descriptors"),
+    parser = require("./index.js"),
     url    = require("url"),
     path   = require("path"),
     fs     = require("fs");
