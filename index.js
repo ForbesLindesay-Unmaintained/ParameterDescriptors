@@ -108,9 +108,6 @@ exports.parseParams = function parseParams(str){
 		stack.push(currentParsed);
 	}
 	for(var i = 0; i<input.length; i++){
-		console.log(JSON.stringify(input[i]));
-		//var paramResult = testLine.test(input[i]);
-		//console.log(paramResult);
 		if(current = input[i].match(testLine)){
 			add(current[1], current[2], current[3]);
 		}else if (current = input[i].match(testReturn)){
