@@ -7,5 +7,8 @@
 		"type":"git",
 		"url": "git://github.com/Tuskan360/ParameterDescriptors.git"
 	},
-	"main": "./index"
+	"main": "./index",
+	"devDependencies":{
+		"express":"2.x.x"
+	}
 }
