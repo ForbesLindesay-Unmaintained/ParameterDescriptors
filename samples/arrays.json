@@ -1,1 +1,3 @@
-["Arg0","object","The first argument"]
+@param Arg0 {object} My first arg
+@param Arg0.value {integer} The value in my arg
+@retrun {integer}

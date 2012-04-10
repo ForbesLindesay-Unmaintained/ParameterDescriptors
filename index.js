@@ -83,6 +83,45 @@ function renderParam(argument, indent, buffer){
     return buffer;
 }
 
+exports.parseParams = function parseParams(str){
+	var input = str.split("\n");
+	var stack = [[]];
+	stack.last = function(){return stack[stack.length-1];};
+	var testLine = /^@param (.+) \{(.+)\} (.+)$/;
+	var testReturn = /^@return(.*) \{(.+)\} ?(.*)$/i
+	var current;
+	function add(pathString, type, description){
+		var optional = false;
+		if(pathString.charAt(0) === "["){
+			//optional
+			optional = true;
+			pathString = pathString.substring(1,pathString.length-1);
+		}
+		var path = pathString.split(".");
+		while(stack.length > path.length){
+			stack.pop();
+		}
+		var name = path[path.length-1];
+		if(optional)name = "[" + name + "]";
+		var currentParsed = [name, type, description];
+		stack.last().push(currentParsed);
+		stack.push(currentParsed);
+	}
+	for(var i = 0; i<input.length; i++){
+		var paramResult = testLine.exec(input[i]);
+		if(current = ""){
+			add(current[1], current[2], current[3]);
+		}else console.log(paramResult);
+		if (current = input[i].match(testReturn)){
+			if(current[2] !== "Void" && current[2] !== "void"){
+				add("return"+current[1], current[2], current[3]);
+			}
+		}
+		else console.log(input[i]);
+	}
+	console.log(stack);
+	return stack[0];
+}
 
 function trim(str) {
     return str.replace(/^\s+|\s+$/g,"");

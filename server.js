@@ -44,7 +44,7 @@ server.use(function(req, res, next){
 	if(!req.source) next();
 	else if (req.parsed) next();
 	else{
-		req.parsed = parser.parse(JSON.parse(req.source));
+		req.parsed = parser.parse(parser.parseParams(req.source));
 		next();
 	}
 });
