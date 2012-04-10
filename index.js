@@ -74,7 +74,7 @@ function renderParam(argument, indent, buffer){
         buffer.push(indentSpace(indent) + '<dd class="'+exports.paramTypeClass + (useTypeClass?' ' + exports.paramTypeClass + '-' + lowerType:'') + '">' + argument.type + '</dd>');
     }
     if(argument.desc) buffer.push(indentSpace(indent) + '<dd class="'+exports.paramDescClass+'">' + argument.desc + '</dd>');
-    if(argument.defaultVal) buffer.push(indentSpace(indent) + '<dd class="'+exports.paramDefaultClass + '">default: ' + argument.defaultVal + '</dd>');
+    if(argument.defaultVal) buffer.push(indentSpace(indent) + '<dd class="'+exports.paramDefaultClass + '">'+(argument.defaultVal === "&nbsp;"?'':'default: ') + argument.defaultVal + '</dd>');
     if(argument.children.length){
         buffer.push(indentSpace(indent) + '<dd class="'+exports.paramSubListClass+'">');
         render(argument.children, indent+1, buffer);
@@ -91,9 +91,9 @@ function trim(str) {
 exports.parse = parse;
 exports.render = function(argumentArray){return render(argumentArray).join("\n");};
 exports.ParseAndRender = function(array){
-    return this.render(this.parse(array));
+    return exports.render(this.parse(array));
 };
 exports.jsonParseAndRender = function(text){
     text = trim(text);
-    return this.ParseAndRender(JSON.parse(text));
+    return exports.ParseAndRender(JSON.parse(text));
 };
