@@ -1,7 +1,7 @@
 {
 	"name": "parameter-descriptors",
 	"description": "Documentation generator for function parameters",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"homepage": "https://github.com/Tuskan360/ParameterDescriptors",
 	"repository": {
 		"type":"git",

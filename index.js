@@ -84,11 +84,11 @@ function renderParam(argument, indent, buffer){
 }
 
 exports.parseParams = function parseParams(str){
-	var input = str.split("\n");
+	var input = str.replace(/\r\n/g, "\n").split("\n");
 	var stack = [[]];
 	stack.last = function(){return stack[stack.length-1];};
-	var testLine = /^@param (.+) \{(.+)\} (.+)$/;
-	var testReturn = /^@return(.*) \{(.+)\} ?(.*)$/i
+	var testLine = /^@param *([\w\[](?:.*[\w\]])?) *\{(\w(?:.*\w)?)\} *(\w.*)$/i;
+	var testReturn = /^@return(.*) *\{(.+)\} *(.*)$/i
 	var current;
 	function add(pathString, type, description){
 		var optional = false;
@@ -108,18 +108,17 @@ exports.parseParams = function parseParams(str){
 		stack.push(currentParsed);
 	}
 	for(var i = 0; i<input.length; i++){
-		var paramResult = testLine.exec(input[i]);
-		if(current = ""){
+		console.log(JSON.stringify(input[i]));
+		//var paramResult = testLine.test(input[i]);
+		//console.log(paramResult);
+		if(current = input[i].match(testLine)){
 			add(current[1], current[2], current[3]);
-		}else console.log(paramResult);
-		if (current = input[i].match(testReturn)){
+		}else if (current = input[i].match(testReturn)){
 			if(current[2] !== "Void" && current[2] !== "void"){
 				add("return"+current[1], current[2], current[3]);
 			}
 		}
-		else console.log(input[i]);
 	}
-	console.log(stack);
 	return stack[0];
 }
 
@@ -135,4 +134,7 @@ exports.ParseAndRender = function(array){
 exports.jsonParseAndRender = function(text){
     text = trim(text);
     return exports.ParseAndRender(JSON.parse(text));
+};
+exports.parseAndRenderParams = function(text){
+	return exports.ParseAndRender(exports.parseParams(text));
 };
