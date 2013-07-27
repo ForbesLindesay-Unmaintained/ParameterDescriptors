@@ -1,15 +1,17 @@
 {
-	"name": "parameter-descriptors",
-	"description": "Documentation generator for function parameters",
-	"version": "0.0.4",
-	"homepage": "https://github.com/Tuskan360/ParameterDescriptors",
-	"repository": {
-		"type":"git",
-		"url": "git://github.com/Tuskan360/ParameterDescriptors.git"
-	},
-	"main": "./index",
-	"devDependencies":{
-		"express":"2.x.x",
-		"ejs":"0.7.x"
-	}
+  "name": "parameter-descriptors",
+  "description": "Documentation generator for function parameters",
+  "version": "0.0.4",
+  "homepage": "https://github.com/Tuskan360/ParameterDescriptors",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Tuskan360/ParameterDescriptors.git"
+  },
+  "main": "./index",
+  "devDependencies": {
+    "express": "2.x.x",
+    "ejs": "0.7.x"
+  },
+  "author": "ForbesLindesay",
+  "license": "MIT"
 }
