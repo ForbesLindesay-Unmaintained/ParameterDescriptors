@@ -9,8 +9,8 @@
   },
   "main": "./index",
   "devDependencies": {
-    "express": "2.x.x",
-    "ejs": "0.7.x"
+    "express": "^4.14.1",
+    "ejs": "~2.5.6"
   },
   "author": "ForbesLindesay",
   "license": "MIT"
